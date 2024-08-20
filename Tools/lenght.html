@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weight CONVERTER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: poppins;
+}
+body{
+    height: 100vh;
+    background:linear-gradient(to right bottom , rgb(0, 115, 255) , rgb(1, 204, 1));
+}
+.navbar{
+    height:60px;
+    width:100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+a{
+    height: 100px;
+    color:black;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 17px;
+    transition: 0.5s;
+}
+a:hover{
+    background-color: white;
+}
+label{
+    margin: 10px;
+}
+h2{
+    border-radius: 12px;
+    margin: 80px;
+    padding: 11px;
+    transition: 0.5s;
+}
+h2:hover{
+    background-color: white;
+}
+#border{
+    border:2px solid white;
+}
+.container{
+    height:400px;
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.463);
+    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    padding: 50px;
+    transform: translate(-50%, -50%);
+}
+h1{
+    margin: 20px;
+}
+.input-group{
+    margin: 20px;
+}
+input{
+    height: 30px;
+    border:none;
+    border-radius:2px;
+}
+button{
+    padding: 8px;
+    margin:10px;
+    border:2px solid black;
+    border-radius:10px;
+    cursor:pointer;
+}
+/* converter */
+.converter {
+    background-color: #ffffff3b;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width:500px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.input-group, .output-group {
+    margin-bottom: 15px;
+}
+
+input[type="number"], input[type="text"], select {
+    padding: 10px;
+    width: calc(100% - 22px);
+    margin-top: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color:  rgb(255, 149, 0);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:  rgb(255, 173, 59);
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav">
+            <h2>Calculator</h3>
+        </div>
+        <div class="nav-icon">
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i><label>Home</label></a>  
+        <a  href="BMI.html"><i class="fa-solid fa-user-nurse"></i><label>BMI</label></a>
+        <a id="border" href="lenght.html"><i class="fa-solid fa-weight-scale"></i><label>Lenght</label></a>
+       <a href="log.html"><label>Log(x)</label></a>
+    </div>
+    </div>
+
+    <div class="converter">
+        <h1>Unit Converter</h1>
+        <div class="input-group">
+            <input type="number" id="inputValue" placeholder="Enter value">
+            <select id="inputUnit">
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="miles">Miles</option>
+                <option value="feet">Feet</option>
+                <option value="inches">Inches</option>
+            </select>
+        </div>
+
+        <div class="output-group">
+            <select id="outputUnit">
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="miles">Miles</option>
+                <option value="feet">Feet</option>
+                <option value="inches">Inches</option>
+            </select>
+            <input type="text" id="outputValue" placeholder="Result" readonly>
+        </div>
+
+        <button onclick="convert()">Convert</button>
+        
+        <script>
+
+            function convert() {
+    const inputValue = parseFloat(document.getElementById('inputValue').value);
+    const inputUnit = document.getElementById('inputUnit').value;
+    const outputUnit = document.getElementById('outputUnit').value;
+
+    let conversionRates = {
+        meters: 1,
+        kilometers: 0.001,
+        miles: 0.000621371,
+        feet: 3.28084,
+        inches: 39.3701
+    };
+
+    if (!isNaN(inputValue)) {
+        let valueInMeters = inputValue / conversionRates[inputUnit];
+        let convertedValue = valueInMeters * conversionRates[outputUnit];
+        document.getElementById('outputValue').value = convertedValue.toFixed(4);
+    } else {
+        alert("Please enter a valid number.");
+    }
+}
+
+        </script>
+    </div>
+    </body>
+    </html>

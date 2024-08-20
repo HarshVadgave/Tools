@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: poppins;
+}
+body{
+    height: 100vh;
+    background:linear-gradient(to right bottom , rgb(0, 115, 255) , rgb(1, 204, 1));
+}
+.navbar{
+    height:60px;
+    width:100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+a{
+    height: 100px;
+    color:black;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 17px;
+    transition: 0.5s;
+}
+a:hover{
+    background-color: white;
+}
+label{
+    margin: 10px;
+}
+/* Log & antiLog */
+.container {
+    background-color: #ffffff3b;
+    padding: 20px;
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width:500px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+}
+h1{
+    margin:50px 0;
+}
+input,p{
+    margin: 10px 0;
+    height:30px;
+}
+button{
+    margin: 10px 0;
+    background-color:  rgb(255, 149, 0);
+    padding: 10px;
+    border-radius: 12px;
+    border:none;
+}
+button:hover{
+    background-color:  rgb(255, 191, 101);
+}
+#border{
+    border:2px solid white;
+}
+</style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav">
+            <h2>Calculator</h3>
+        </div>
+        <div class="nav-icon">
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i><label>Home</label></a>  
+        <a  href="BMI.html"><i class="fa-solid fa-user-nurse"></i><label>BMI</label></a>
+        <a href="lenght.html"><i class="fa-solid fa-weight-scale"></i><label>Lenght</label></a>
+       <a id="border" href="log.html"><label>Log(x)</label></a>
+    </div>
+    </div>
+    
+<div class="container">
+    <h1>Log And Antilog Calculator</h1>
+    <p>Enter a value: <input type="text" id="number" placeholder="Enter value to calculate" required></p>
+    <button onclick="LogCalculator()">Log</button>
+    <button onclick="AntilogCalculator()">Antilog</button>
+    <p id="LogResult"></p>
+    <p id="AntilogResult"></p>
+
+</div>
+
+    <script>
+function LogCalculator(){
+    const number = parseFloat(document.getElementById('number').value);
+    if (isNaN(number) || number <= 0) {
+        alert("Please enter a valid positive number.");
+        return;
+    }
+    
+    const logValue = Math.log10(number);
+    document.getElementById('LogResult').innerText = `Log(${number}) = ${logValue}`;
+    document.getElementById('AntilogResult').innerText = '';
+
+
+}
+function AntilogCalculator(){
+    const number = parseFloat(document.getElementById('number').value);
+    if (isNaN(number)) {
+        alert("Please enter a valid number");
+        return;
+    }
+    
+    const AntilogValue = Math.pow(10 , number);
+    document.getElementById('AntilogResult').innerText = `AntiLog(${number}) = ${AntilogValue}`;
+    document.getElementById('LogResult').innerText = '' ;
+
+}</script>
+</body>
+</html>

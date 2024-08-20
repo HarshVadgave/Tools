@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Vadgave</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- NavBar -->
+    <div class="navbar">
+        <div class="nav">
+            <h2>Calculator</h3>
+        </div>
+        <div class="nav-icon">
+            <a id="border" href="index.html"><i class="fa-solid fa-arrow-left"></i><label>Home</label></a>  
+        <a  href="BMI.html"><i class="fa-solid fa-user-nurse"></i><label>BMI</label></a>
+        <a href="lenght.html"><i class="fa-solid fa-weight-scale"></i><label>Lenght</label></a>
+       <a href="log.html"><label>Log(x)</label></a>
+    </div>
+    </div>
+
+    <!-- Calculator -->
+    <div class="calculator">
+        <input id="display" readonly disabled>
+        <div class="keys">
+         <div class="button">
+             <div class="row">
+                 <button class="btn" onclick="appendToDisplay('7')">7</button>
+                 <button class="btn" onclick="appendToDisplay('8')">8</button>
+                 <button class="btn" onclick="appendToDisplay('9')">9</button>
+                 <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+             </div>
+             <div class="row">
+                 <button class="btn" onclick="appendToDisplay('6')">6</button>
+                 <button class="btn" onclick="appendToDisplay('5')">5</button>
+                 <button class="btn" onclick="appendToDisplay('4')">4</button>
+                 <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+             </div>
+             <div class="row">
+                 <button class="btn" onclick="appendToDisplay('3')">3</button>
+                 <button class="btn" onclick="appendToDisplay('2')">2</button>
+                 <button class="btn" onclick="appendToDisplay('1')">1</button>
+                 <button class="btn operator" onclick="appendToDisplay('*')">x</button>
+             </div>
+             <div class="row">
+                 <button class="btn" onclick="appendToDisplay('.')">.</button>
+                 <button class="btn" onclick="appendToDisplay('0')">0</button>
+                 <button class="btn" onclick="appendToDisplay('/')">/</button>
+                 <button class="btn operator" onclick="calculate()">=</button>
+ 
+             </div>
+             <div class="row">
+                 <button class="btn operator" onclick="clearDisplay()">C</button>
+                 <button class="btn" onclick="appendToDisplay('(')">(</button>
+                 <button class="btn" onclick="appendToDisplay(')')">)</button>
+                 <button class="btn operator" onclick="appendToDisplay('**')">^</button>
+             </div>
+         </div>
+        </div>
+     </div>
+    <script src="script.js"></script>
+</body>
+</html>
